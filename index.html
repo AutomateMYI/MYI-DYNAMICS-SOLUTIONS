@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MYI Dynamics Solutions provides industrial automation, PLC programming, HMI/SCADA and machine troubleshooting services.">
+  <title>MYI Dynamics Solutions | Industrial Automation</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #172b3a;
+      line-height: 1.6;
+      background: #f5f8fb;
+    }
+
+    header {
+      background: #10283f;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo { font-size: 20px; font-weight: bold; }
+    .logo span { color: #29c6ad; }
+
+    nav { display: flex; flex-wrap: wrap; gap: 20px; }
+    nav a { color: white; text-decoration: none; }
+
+    .hero {
+      background: linear-gradient(125deg, #10283f, #1b5268);
+      color: white;
+      padding: 95px 7%;
+    }
+
+    .hero-content { max-width: 760px; }
+    .tag { color: #46e0c5; font-weight: bold; letter-spacing: 2px; }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.15;
+      margin: 18px 0;
+    }
+
+    .hero p { font-size: 18px; color: #d6e5ed; max-width: 650px; }
+
+    .btn {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 13px 22px;
+      border-radius: 6px;
+      background: #20b99f;
+      color: #10283f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section { padding: 65px 7%; }
+
+    .section-title { text-align: center; margin-bottom: 35px; }
+    .section-title h2 { font-size: 32px; margin-bottom: 8px; }
+    .section-title p { color: #637587; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #e2eaf0;
+      box-shadow: 0 5px 18px #10283f0a;
+    }
+
+    .card h3 { margin: 10px 0; }
+    .card p { color: #5e7080; }
+    .symbol { font-size: 30px; }
+
+    #projects { background: #eaf1f6; }
+
+    .project-label {
+      display: inline-block;
+      color: #087e70;
+      background: #dcf7f0;
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    #about { background: white; }
+    .about-content { max-width: 800px; margin: auto; text-align: center; }
+
+    #contact { text-align: center; }
+
+    footer {
+      background: #10283f;
+      color: #d6e5ed;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #20b96b;
+      color: white;
+      padding: 13px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 15px #0002;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      nav { gap: 12px; font-size: 14px; }
+      .hero { padding: 65px 6%; }
+      section { padding: 48px 6%; }
+    }
+    
+.project-image {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+
+.project-slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background: #eaf1f6;
+}
+
+.project-slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.project-slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(16, 40, 63, 0.8);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+
+
+#projects .card {
+  overflow: hidden;
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">MYI DYNAMICS <span>SOLUTIONS</span></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="tag">INDUSTRIAL AUTOMATION SOLUTIONS</div>
+        <h1>Smart Automation.<br>Reliable Solutions.</h1>
+        <p>
+          Helping industries improve machine performance through
+          PLC programming, HMI/SCADA integration, electrical engineering
+          and automation troubleshooting.
+        </p>
+        <a class="btn" href="#services">Explore Our Services →</a>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Engineering support for industrial automation and control systems.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="symbol">⚙️</div>
+          <h3>PLC Programming</h3>
+          <p>PLC development, modification, communication and machine control.</p>
+        </article>
+
+        <article class="card">
+          <div class="symbol">🖥️</div>
+          <h3>HMI & SCADA</h3>
+          <p>Operator interfaces, machine monitoring, alarms and data logging.</p>
+        </article>
+
+        <article class="card">
+          <div class="symbol">⚡</div>
+          <h3>Electrical Engineering</h3>
+          <p>Electrical schematics, control panels, sensors and motor control.</p>
+        </article>
+
+        <article class="card">
+          <div class="symbol">🔧</div>
+          <h3>Machine Troubleshooting</h3>
+          <p>Fault investigation, machine upgrades and automation support.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Our Projects</h2>
+        <p>Examples of project categories to showcase your experience.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          
+
+
+         <div class="project-slider">
+  <img src="Images/Project/Machine 2a Seq.JPG"
+       class="active" alt="Machine wiring">
+
+  <img src="Images/Project/Machine 2b Seq.jpg"
+       alt="Machine HMI">
+
+  <img src="Images/Project/Machine_1a_Seq.PNG"
+       alt="Machine PLC">
+
+  <button class="slider-btn prev"
+          onclick="slideProject(this, -1)">&#10094;</button>
+
+  <button class="slider-btn next"
+          onclick="slideProject(this, 1)">&#10095;</button>
+</div>
+>
+
+
+
+
+          <span class="project-label">Project example</span>
+          <h3>Machine Automation</h3>
+          <p>PLC-controlled machine systems, sequence control and troubleshooting.</p>
+        </article>
+
+        <article class="card">
+
+          <div class="project-slider">
+  <img src="Images/Project/Machine 5a HMI.jpeg"
+       class="active" alt="Machine wiring">
+
+  <img src="Images/Project/Machine 3a HMI.jpg"
+       alt="Machine HMI">
+
+  <img src="Images/Project/Machine 12a NR.jpeg"
+       alt="Machine PLC">
+
+  <img src="Images/Project/Machine 12c NR.jpeg"
+       alt="Machine PLC">
+
+  <button class="slider-btn prev"
+          onclick="slideProject(this, -1)">&#10094;</button>
+
+  <button class="slider-btn next"
+          onclick="slideProject(this, 1)">&#10095;</button>
+</div>
+          <span class="project-label">Project example</span>
+          <h3>HMI/SCADA Monitoring</h3>
+          <p>Industrial data monitoring, alarm management and production history.</p>
+        </article>
+
+        <article class="card">
+
+          <div class="project-slider">
+  <img src="Images/Project/Machine 1a wiring.JPG"
+       class="active" alt="Machine wiring">
+
+  <img src="Images/Project/Machine 4a wiring.jpeg"
+       alt="Machine HMI">
+
+  <img src="Images/Project/Machine 7a PLC.jpeg"
+       alt="Machine PLC">
+    <img src="Images/Project/Machine 10a Wiring.jpeg"
+       alt="Machine PLC">
+    <img src="Images/Project/Machine 2a wiring.jpg"
+       alt="Machine PLC">
+
+  <button class="slider-btn prev"
+          onclick="slideProject(this, -1)">&#10094;</button>
+
+  <button class="slider-btn next"
+          onclick="slideProject(this, 1)">&#10095;</button>
+</div>
+          <span class="project-label">Project example</span>
+          <h3>Control System Upgrade</h3>
+          <p>PLC replacement, electrical modifications and system integration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-content">
+        <h2>About MYI Dynamics Solutions</h2>
+        <p>
+          We aim to provide practical industrial automation and
+          engineering solutions tailored to customer requirements.
+          Our focus is reliable machine operation, efficient control
+          systems and responsive technical support.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Let's Discuss Your Project</h2>
+        <p>Contact us to discuss your automation requirements.</p>
+        <a class="btn whatsapp-link" href="#contact">Contact via WhatsApp →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> MYI Dynamics Solutions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Replace this placeholder with your WhatsApp number.
+    // Use country code and digits only, without +, spaces or dashes.
+    const whatsappNumber = "601175158937";
+
+    const message = encodeURIComponent(
+      "Hello MYI Dynamics Solutions, I would like to enquire about your automation services."
+    );
+
+    document.querySelectorAll(".whatsapp-link, .whatsapp").forEach(link => {
+      link.href = "https://wa.me/" + whatsappNumber + "?text=" + message;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+
+
+
+  
+function slideProject(button, direction) {
+  const slider = button.closest(".project-slider");
+  if (!slider) return;
+
+  const images = slider.querySelectorAll("img");
+  if (images.length < 2) return;
+
+  let current = 0;
+
+  images.forEach((img, index) => {
+    if (img.classList.contains("active")) {
+      current = index;
+    }
+  });
+
+  images[current].classList.remove("active");
+
+  const next = (current + direction + images.length) % images.length;
+  images[next].classList.add("active");
+}
+
+document.querySelectorAll(".project-slider").forEach(slider => {
+  setInterval(() => {
+    const images = slider.querySelectorAll("img");
+    if (images.length < 2) return;
+
+    let current = 0;
+
+    images.forEach((img, index) => {
+      if (img.classList.contains("active")) {
+        current = index;
+      }
+    });
+
+    images[current].classList.remove("active");
+
+    const next = (current + 1) % images.length;
+    images[next].classList.add("active");
+  }, 3000);
+});
+
+  
+  </script>
+
+  <a class="whatsapp whatsapp-link" href="#contact">
+    WhatsApp Us
+  </a>
+
+
+
+
+</body>
+</html>
